@@ -1,19 +1,24 @@
 package retrofittest.ezlife.com.retrofittest;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 
 public interface SOService {
 
-//    @GET("ListWifi.php?lat=21.019503&lon=105.771017&offset=0&limit=100")
-//    Call<Example> getAllExamples();
 
     @GET("ListWifi.php?offset=0&limit=100")
-    Call<Example> getExamples(@Query("lat") String lat,@Query("lon") String lon);
+    Call<KetQua> getExamples(@Query("lat") String lat, @Query("lon") String lon);
+
+    @POST("CollectWifi.php")
+    @FormUrlEncoded
+    Call<Example> post(@Field("wName") String name,
+                       @Field("wBSSID") String bssid,
+                       @Field("userId") String pass,
+                       @Field("wLon") String lon,
+                       @Field("wLat") String lat);
 }

@@ -1,10 +1,12 @@
 package retrofittest.ezlife.com.retrofittest;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 
-public class Example {
+public class KetQua {
 
     @SerializedName("code")
     @Expose
@@ -14,7 +16,7 @@ public class Example {
     private String msg;
     @SerializedName("data")
     @Expose
-    private Object data;
+    private List<Datum> data = null;
 
     public String getCode() {
         return code;
@@ -32,11 +34,11 @@ public class Example {
         this.msg = msg;
     }
 
-    public Object getData() {
+    public List<Datum> getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(List<Datum> data) {
         this.data = data;
     }
 
